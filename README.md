@@ -1,5 +1,5 @@
 # www.bitmonky.com
-Repo For The BitMonky Website 
+Repo For The BitMonky Website - A Guerrilla Coders Inc Project.
 
 ## About Guerrilla Coders Inc
 Building Big Tools For The Little Guy.
