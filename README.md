@@ -34,4 +34,4 @@ This model offers a new way of doing business, one that is inclusive, transparen
 ## How To Join
 Anyone can join the team regardless of your skill sets or experiance.  Team members are compensated for their work by earning BMGP ( The crypto backed token that is
 the backbone of the sites economy).  The better the team performs as a community the more valuable the sites economy will become.  To join the team vist
-https://guerrillasoft.org  and fill in the signup form.
+https://guerrillasoft.org  and click the "Register Now" button.
