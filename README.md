@@ -2,7 +2,7 @@
 Repo For The BitMonky Website - A Guerrilla Coders Inc Project.
 
 ## About Guerrilla Coders Inc
-Building Big Tools For The Little Guy.
+### Building Big Tools For The Little Guy
 Guerrilla Coders Inc. is a non-profit organization that is at the forefront of the coding revolution. Our primary mandate is to operate and maintain the bitmonky.com platform, a dynamic digital space powered by our very own BitMonky Tokens.
 
 In addition to running bitmonky.com, we are also committed to supporting various open-source projects. These projects align with our mission to foster a community of coders who are not only passionate about coding but also believe in the power of open-source software to drive innovation and collaboration.
