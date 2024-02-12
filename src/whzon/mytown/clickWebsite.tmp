@@ -1,0 +1,47 @@
+<?php
+ini_set('display_errors',1); 
+error_reporting(E_ALL);
+include_once("../mkysess.php");
+
+  if(isset($_GET['wsID']))    {$wsID = clean($_GET['wsID']);} else {$wsID = null;}
+  if(isset($_GET['hitzone'])) {$hitzone = clean($_GET['hitzone']);} else {$hitzone = null;}
+  if(isset($_GET['fwebsiteID'])) {$websiteID = clean($_GET['fwebsiteID']);} else {$websiteID = null;}
+
+  if ($websiteID == "" || $websiteID == null){
+    $SQL = "Select mWebFlg, URL, websiteID, Title FROM tblWebsites where trackerWsID=".$wsID." and zoneID='".$hitzone."'";
+  }
+  else {
+    $wsID = 0;
+    $hitzone = "n";
+    $SQL = "Select mWebFlg, URL, websiteID, Title FROM tblWebsites where websiteID=".$websiteID;
+  }
+  $result = mssql_query($SQL) or die($SQL);
+  $tRec = mssql_fetch_array($result);
+
+  if (!$tRec){
+    header('Location: /whzon/public/homepg.php?wzID='.$sKey);
+    exit('');
+  }
+  
+  $mWebFlg = $tRec['mWebFlg'];
+
+  $websiteID = $tRec['websiteID'];
+  $URLSTR    = $tRec['URL'];
+  if ($mWebFlg == 1){
+    $URLSTR = "".$whzdom."/".$URLSTR;
+  } 
+  $URLSTR = mkyStrReplace("http://", "",$URLSTR);   
+  $URLSTR = "http://".$URLSTR;
+  $websiteTitle = $tRec['Title'];
+  
+  $browserStr = $_SERVER['HTTP_USER_AGENT'];
+
+  if ($mWebFlg == 1){
+    $URL = "/whozon/mbrMWeb.asp?fwebsiteID=".$websiteID; 
+  }
+  else {
+    $URL = "/whzon/mbr/viewWebsite.php?nRsize=on&fwebsiteID=".$websiteID."&wsID=".$wsID."&hitzone=".$hitzone;
+  }
+
+  header('Location: '.$URL);
+?>
