@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="pgHTM" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Whzon.com</title>
+  <link rel="stylesheet" href="pc.css?v=1.0"/>
+  <!--[if lt IE 9]>
+    <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<script>
+
+
+function ownerRemoveChatMsg(msgID,sKey){
+  parent.window.scrollTo(1, 0);
+  parent.wzAPI_showFrame('/whzon/talk/popConfirmDelChat.php?wzID=' + parent.sID + '&fchatID=' + msgID, 300, 250, 25, 200);
+}
+
+function wzOpenSiteLOG(URL,wsID){
+  parent.wzGetPage(URL);
+}
+function vshare(URL){
+  parent.wzGetPage(URL);}
+
+function pshare(photoID,mbrID){
+  var URL="https://whzon.com/whozon/clone/mbrViewPhotos.asp?fwzUserID=" + mbrID + " &vPhotoID=" + photoID;
+  parent.wzGetPage(URL);
+}
+
+function wzPopChat(fID){
+  var URL="/wzUsers/trackerLT/popChatWindowV2.asp?fmbrID=" + fID;
+  var winName = "wzPopChatReq";
+  var pChatWin= window.open(URL,winName,"target=new,width=728,height=700,resizable=yes,scrollbars=no,left=480");
+  pChatWin.focus();
+}
+</script>
+</HEAD>
+<BODY class='pgBody'>
+<div ID='chatDiv'></div>
+</body>
+</html>
+
