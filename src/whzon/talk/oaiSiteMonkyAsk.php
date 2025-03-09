@@ -163,6 +163,9 @@ $msg->n      = 1;
 $msg->maxTokens = 620;
 $msg->useModel = $mod;
 
+// Send the prompt to chatGPT via the NodeJS server.
+// note - I will post the code soon for the intermediary nodeJS service. 
+
 $pUrl = "https://antsrv.bitmonky.com:".$GLOBALS['MKYC_portOPAI']."/netREQ/msg=".mkyUrlEncode(json_encode($msg));
 
 $res = getAccToken($pUrl);
