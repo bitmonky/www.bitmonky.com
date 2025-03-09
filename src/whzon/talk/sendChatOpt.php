@@ -270,12 +270,14 @@ function respondAsMonkey($channel,$talkerID,$msg,$msgID){
     $digiHut = '&digiHut='.urlencode($digiHut);
   }
 
+/*
   $ts = checkAITokenSuply($talkerID);
   if ($ts->bal <= 0){
     $mkyresp = "Sorry But You Are Out Of BMGP Tokens... I might work for bananas but they are not free!
     You will have to earn some more or buy some on the GJEX.";
   }
   else {
+ */ 
     $data = '?chanID='.$channel.'&UID='.$talkerID.'&msg='.urlencode($msg).'&uname='.urlencode($uname).$digiHut; 
     $ores = tryFetchURL('https://www.bitmonky.com/whzon/talk/oaiSiteMonky.php'.$data);
     $j = json_decode($ores,false,512,JSON_INVALID_UTF8_SUBSTITUTE);
@@ -286,7 +288,7 @@ function respondAsMonkey($channel,$talkerID,$msg,$msgID){
         $mkyresp = $j->data;
       }
     }
-  }  
+//  }  
   if ($mkyresp){
     $shout = $atname.$mkyresp;    
     gfbug('shout:'.$shout);

@@ -38,7 +38,7 @@ $msg->n      = 1;
 $msg->maxTokens = 620;
 $msg->useModel = $mod;
 
-$pUrl = "https://antsrv.bitmonky.com:13381/netREQ/msg=".mkyUrlEncode(json_encode($msg));
+$pUrl = "https://antsrv.bitmonky.com:".$GLOBALS['MKYC_portOPAI']."/netREQ/msg=".mkyUrlEncode(json_encode($msg));
 
 $res = getAccToken($pUrl);
 $res = json_decode($res);

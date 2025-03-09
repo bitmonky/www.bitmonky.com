@@ -1,6 +1,6 @@
 <?php
-//ini_set('display_errors',1); 
-//error_reporting(E_ALL);
+ini_set('display_errors',1); 
+error_reporting(E_ALL);
 include_once('../sessMgrWC.php');
 
 $ircCache = new stdClass;
@@ -132,13 +132,18 @@ if ($irc->checkCache()){
 include_once("../mkysess.php");
 include_once("../gold/goldInc.php");
 include_once("../apps/dating/dateInc.php");
+include_once("monkeyAskInc.php");
+
+$storeID = 0;
 
 if ($userID!=0 || 1==1){
   $SQL = "Select chanStoreID from tblChatChannel  where channelID = ".$inChatChanID;
   $result = mkyMsqry($SQL);
   $tRec = mkyMsFetch($result);
   $inWhat = 'Room';
-  $storeID = $tRec['chanStoreID'];
+  if ($tRec){
+    $storeID = $tRec['chanStoreID'];
+  }
   $action = "<span  style='padding:3px;background:#333333;border-radius: .25em;'>";
   $action .= "<a alt='Link to dating Section' href=\"javascript:wzGetPage('/whzon/apps/dating/appDating.php?wzID=' ";
   $action .= "+ sID + '&fscope=myWorld&fmyMode=mbrs&fwzUserId=' + wzUserID );\">";
@@ -219,12 +224,12 @@ if ($userID!=0 || 1==1){
   $foot .= "</div>";
 
   $foot .= "<div align='right' style='margin:0em 0em 0.35em 0em;'>"; 
-  $foot .= "<input type='button' style='background:orange;color:white;padding:.6em;' ";
-  $foot .= "onclick='wzGetPage(\"/whzon/franMgr/franMgr.php?mode=reRead&wzID=\" + sID);' Value=' Claim A City '/>"; 
+  //$foot .= "<button type='button' style='background:orange;color:white;padding:.6em;' ";
+  //$foot .= "onclick='wzGetPage(\"/whzon/franMgr/franMgr.php?mode=reRead&wzID=\" + sID);' class='mkyold-button'> Claim A City </button>"; 
   //$foot .= " <input type='button' style='animation: mkyFlash 5s  infinite;padding:.6em;' value=' Download A NanoBot ' onclick='popImpLoto();'/>";
   if ($userID != 0){
-    $foot .= " <input type='button' style='animation: mkyFlash 5s  infinite;padding:.6em;' ";
-    $foot .= "value=' Ask Agent SiteMonkey AI ' onclick='sayToMember(\"Agent.SiteMonkey.AI\");'/>";
+    $foot .= " <button type='button' style='animation: mkyFlash 5s  infinite;padding:.6em;' ";
+    $foot .= " class='mkyold-button' onclick='sayToMember(\"Agent.SiteMonkey.AI\");'/> Ask Agent SiteMonkey AI </button>";
   }
   echo $foot;
   $ircCache->foot = $foot;
@@ -240,5 +245,4 @@ if ($userID!=0 || 1==1){
   */
  
 }  
-
 ?> 

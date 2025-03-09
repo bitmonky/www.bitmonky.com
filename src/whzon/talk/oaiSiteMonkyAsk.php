@@ -43,6 +43,7 @@ if ($rec){
   $SQL .= "order by msgID desc limit 10";
   $res = mkyMyqry($SQL);
   $rec = mkyMyFetch($res);
+  $conv = null;
   if ($rec){
     $conv  = "";
     while ($rec){
@@ -145,14 +146,14 @@ if  ($mkyUID == $chanOUID && $digiHut && $digiHut != 'dc14fd698646636277d080a6a8
   }
 }
 
-$prompt  = 'Act as if you are human your name is "Agent SiteMonkey AI", you are the host for '.$mkySite.' '.$ftopic.' ';
-$prompt .= 'Give the response only with no explanations.  be creative. ';
-$prompt .= 'Keep your reponses short. The user you are talking to name is "'.$uname.'".  ';
+$prompt  = 'Act as if you are human your name is Agent SiteMonkey AI, you are the host for '.$mkySite.' '.$ftopic.' ';
+$prompt .= 'Ask the current user question base on the current conversation so far that is likely to further engae the user. be creative. ';
+$prompt .= 'Keep your reponses short. The users name is '.$uname.'.  ';
 $prompt .= $siteInfo;
-$prompt .= ' Please DO NOT start your responses with any salutation to the user. Do not mention \'@'.$uname.'\' at the start of your response. ';
-$prompt .= "Do not repeat things that the other person says. ";
-$prompt .= 'The conversation so far is as follows. [Start] {'.$conv.' } [End]';
-gfbug('chanChat::'.$prompt);
+$prompt .= 'The conversation so far is as follows. '.$conv;
+$prompt .= ' Please DO NOT start your question with any salutation to the user. Do not mention \'@'.$uname.'\' at the start of your question. ';
+$prompt .= "Do not repeat things that the other person says.";
+gfbug('chanChat::'.$conv);
 
 $msg = new stdClass;
 $msg->action = "getTextNow";
