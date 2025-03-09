@@ -147,7 +147,7 @@ if  ($mkyUID == $chanOUID && $digiHut && $digiHut != 'dc14fd698646636277d080a6a8
 }
 
 $prompt  = 'Act as if you are human your name is Agent SiteMonkey AI, you are the host for '.$mkySite.' '.$ftopic.' ';
-$prompt .= 'Ask the current user question base on the current conversation so far that is likely to further engae the user. be creative. ';
+$prompt .= 'Ask the current user question base on the current conversation so far that is likely to further engage the user. be creative. ';
 $prompt .= 'Keep your reponses short. The users name is '.$uname.'.  ';
 $prompt .= $siteInfo;
 $prompt .= 'The conversation so far is as follows. '.$conv;
